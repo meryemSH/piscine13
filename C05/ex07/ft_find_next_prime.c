@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mserghou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 17:18:17 by mserghou          #+#    #+#             */
+/*   Updated: 2024/09/15 17:48:32 by mserghou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+int	ft_is_prime(int nb)
+{
+	int	i;
+
+	i = 3;
+	if (nb <= 1)
+		return (0);
+	if (nb == 2)
+		return (1);
+	if (nb % 2 == 0)
+		return (0);
+	while (i * i <= nb)
+	{
+		if (nb % i == 0)
+			return (0);
+		i += 2;
+	}
+	return (1);
+}
+
+int	ft_find_next_prime(int nb)
+{
+	while (!ft_is_prime(nb))
+	{
+		nb++;
+	}
+	return (nb);
+}
